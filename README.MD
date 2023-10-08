@@ -1,0 +1,3 @@
+This is an ultimate authentication api for starting projects
+THERE ARE SOME THINGS YOU NEED TO GET RIGHT IN ORDER TO GET THIS CODE WORKIN, AND THESE ARE AS FOLLOWS: 1. create a folder in the util folder called email and copy and paste the the code in the util/email/email.template file to the same file name in the same folder of the js build folder 2. make sure you create an environmental variable for each of the following 1. Port (mine runs on 3002) 2. client url( which is your client's url) 3. ACCESS_TOKEN any random letters and numbers will do. 4. REFRESH_TOKEN any random letters and numbers will do.
+Password reset link and forgot password link all have the server ip/ url please change this to the client's url/ip in order for it to work automatically.

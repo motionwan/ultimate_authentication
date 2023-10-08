@@ -1,0 +1,46 @@
+
+@hostname = http://localhost:3002
+
+
+###
+post {{hostname}}/users
+Content-Type: application/json
+
+{
+"firstName": "Benjamin",
+"lastName": "Mordedzi",
+"email": "benjaminmordedzi@hotmail.com",
+"password":"123456",
+"username":"benjaminmordedzi"
+}
+###
+
+##### login
+post {{hostname}}/users/login
+Content-Type: application/json
+
+{
+    "login": "benjaminmordedzi@hotmail.com",
+    "password": "123456"
+}
+
+### verify account
+post {{hostname}}/users/6522b3ed744013449a636268/verify/c904e5a7f11e90d1a4b0cc7f9395077e001c54968001d3616331607bf1d5ce3e
+
+
+####
+// forgot password
+post {{hostname}}/users/forgot_password
+Content-Type: application/json
+
+{
+    "email":"benjaminmordedzi@hotmail.com"
+}
+
+##### reset password
+post {{hostname}}/users/reset_password/363c092f64fd796cc0e70d56a79df3185243981bcf63e25e22f88be99b16b7b6
+Content-Type: application/json
+
+{
+ "password": "password"
+}
