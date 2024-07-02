@@ -23,15 +23,27 @@ app.use(cookieParser());
 // connection to mongodb
 //NB: ANY DATABASE CAN BE CONNECTED HERE
 
-mongoose
-  .connect(process.env.MONGODB_URI!)
-  .then(() => {
-    console.log('Connected to MongoDB');
-  })
-  .catch((err) => {
-    console.log(`Could not connect to MongoDB ${err.message}`);
-  });
+const databaseuri = process.env.DATABASE_URL;
+console.log(databaseuri);
 
+async function connectToMongoDB() {
+  try {
+    const mongoUri = process.env.DATABASE_URL;
+
+    if (!mongoUri) {
+      throw new Error('MONGODB_URI environment variable is not defined!');
+    }
+
+    await mongoose.connect(mongoUri);
+
+    console.log('MongoDB connected successfully!');
+  } catch (err) {
+    console.error('Error connecting to MongoDB:', err);
+    process.exit(1); // Exit the process on connection error
+  }
+}
+
+connectToMongoDB();
 //import the routes
 import userRoutes from './routers/users.router';
 
